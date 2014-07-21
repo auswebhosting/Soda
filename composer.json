@@ -1,5 +1,23 @@
 {
+    "name": "soda/soda",
+    "type": "library",
+    "description": "The Soda WordPress framework",
+    "keywords": ["framework"],
+    "homepage": "http://webomate.com",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Drew Morris",
+            "email": "drew@webomate.com"
+        },
+        {
+            "name": "Webomate Group",
+            "homepage": "http://webomate.com"
+        }
+    ],
     "autoload": {
         "psr-0": { "": "src/" }
     }
 }
+
+
