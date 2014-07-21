@@ -5,6 +5,11 @@
     "keywords": ["framework"],
     "homepage": "http://webomate.com",
     "license": "MIT",
+    "require": {
+        "silex/silex": "~1.1",
+        "igorw/config-service-provider": "1.2.*",
+        "cocur/slugify": "dev-master"
+    },
     "authors": [
         {
             "name": "Drew Morris",
