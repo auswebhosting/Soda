@@ -4,6 +4,7 @@ namespace Soda\Component\Menu;
 
 class Menu
 {
+    
   /**
     * Creates a menu.
     *
