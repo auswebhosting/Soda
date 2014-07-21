@@ -15,7 +15,7 @@ class ThemeServiceProvider implements ServiceProviderInterface
 
     public function boot(Application $app)
     {
-        $app['theme'] = new Theme($app['theme.name'], $app['theme.css']);
-        $app['theme']->setTheme($app['theme.name']);
+        $app['theme'] = new Theme($app['theme.config']['name'], $app['theme.config']['css']);
+        $app['theme']->setTheme($app['theme.config']['name']);
     }
 }

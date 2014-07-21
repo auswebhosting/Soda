@@ -6,7 +6,6 @@ use Silex\Application;
 use Silex\ServiceProviderInterface;
 
 use \Soda\Component\Menu\Menu;
-use \Igorw\Silex\ConfigServiceProvider;
 use \Cocur\Slugify\Slugify;
 
 class MenuServiceProvider implements ServiceProviderInterface
@@ -18,7 +17,6 @@ class MenuServiceProvider implements ServiceProviderInterface
     public function boot(Application $app)
     {
         $app['menu'] = new Menu();
-        $app->register(new ConfigServiceProvider($app['menu.config']));
         $this->render($app);
     }
 
@@ -26,7 +24,7 @@ class MenuServiceProvider implements ServiceProviderInterface
     {
         $slugify = new Slugify();
 
-        foreach($app['menus'] as $key)
+        foreach($app['menu.config'] as $key)
         {   
             $controller = explode('::', $key['_controller']);
             $instance   = new $controller[0];
