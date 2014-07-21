@@ -51,6 +51,9 @@ class Theme {
 			plugins_url($this->filename . dirname(__FILE__))
 		);
 
+        var_dump(plugins_url($this->filename . dirname(__FILE__)));
+        
+
 	}
 
     /**
@@ -71,6 +74,8 @@ class Theme {
 		if ( in_array( $color_scheme, $this->colors ) || in_array( get_current_screen()->base, $scheme_screens ) ){
 			$wp_styles->registered[ 'colors' ]->deps[] = 'colors-fresh';
 		}
+
+
 
 	}
 
