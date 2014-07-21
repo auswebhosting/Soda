@@ -9,17 +9,10 @@ use \Soda\Component\Dashboard\Theme;
 
 class ThemeServiceProvider implements ServiceProviderInterface
 {
-	private $theme;
-
-	public function __construct($name, $filename)
-	{
-		$this->theme = new Theme($name, $filename);
-		$this->theme->setTheme($name);
-	}
-
     public function register(Application $app)
     {
-        $app['theme'] = $this->theme;
+        $app['theme'] = new Theme($app['theme.name'], $app['theme.css']);
+        $app['theme']->setTheme($app['theme.name']);
     }
 
     public function boot(Application $app)

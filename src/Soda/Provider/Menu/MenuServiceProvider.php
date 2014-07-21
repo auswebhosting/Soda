@@ -11,17 +11,10 @@ use \Cocur\Slugify\Slugify;
 
 class MenuServiceProvider implements ServiceProviderInterface
 {
-    private $filename;
-
-    public function __construct($filename)
-    {
-        $this->filename = $filename;
-    }
-
     public function register(Application $app)
     {
-        $app['menu.factory'] = new Menu();
-        $app->register(new ConfigServiceProvider($this->filename));
+        $app['menu'] = new Menu();
+        $app->register(new ConfigServiceProvider($app['menu.config']));
         $this->render($app);
     }
 
@@ -32,10 +25,11 @@ class MenuServiceProvider implements ServiceProviderInterface
         foreach($app['menus'] as $key)
         {   
             $controller = explode('::', $key['_controller']);
-            $instance = new $controller[0];
-            $method = $controller[1];
-            $slug = $slugify->slugify($key['title']);
-            $app['menu.factory']->create([$key['title'], $key['title'], $key['capability'], $slug, array($instance, $method), $key['icon'], $key['position']]);
+            $instance   = new $controller[0];
+            $method     = $controller[1];
+            $slug       = $slugify->slugify($key['title']);
+            
+            $app['menu']->create([$key['title'], $key['title'], $key['capability'], $slug, array($instance, $method), $key['icon'], $key['position']]);
         }
     }
 
