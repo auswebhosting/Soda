@@ -13,6 +13,10 @@ class MenuServiceProvider implements ServiceProviderInterface
 {
     public function register(Application $app)
     {
+    }
+
+    public function boot(Application $app)
+    {
         $app['menu'] = new Menu();
         $app->register(new ConfigServiceProvider($app['menu.config']));
         $this->render($app);
@@ -31,9 +35,5 @@ class MenuServiceProvider implements ServiceProviderInterface
             
             $app['menu']->create([$key['title'], $key['title'], $key['capability'], $slug, array($instance, $method), $key['icon'], $key['position']]);
         }
-    }
-
-    public function boot(Application $app)
-    {
     }
 }
