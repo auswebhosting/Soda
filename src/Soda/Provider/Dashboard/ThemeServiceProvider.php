@@ -5,7 +5,7 @@ namespace Soda\Provider\Dashboard;
 use Silex\Application;
 use Silex\ServiceProviderInterface;
 
-use \Soda\Component\Notification\Theme;
+use \Soda\Component\Dashboard\Theme;
 
 class ThemeServiceProvider implements ServiceProviderInterface
 {
