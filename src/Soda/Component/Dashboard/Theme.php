@@ -47,11 +47,9 @@ class Theme {
 		$suffix = is_rtl() ? '-rtl' : '';
 
 		wp_admin_css_color( 
-			$this->name, __( ucfirst($this->name), 'admin_schemes' ), 
-			plugins_url($this->filename . dirname(__FILE__))
+			$this->name, __( ucfirst($this->name), 'admin_schemes' ),
+            plugins_url($this->filename, dirname(__DIR__))
 		);
-
-        var_dump(plugins_url("HELLO" . dirname(__FILE__)));
 
 
 	}
