@@ -51,8 +51,8 @@ class Theme {
 			plugins_url($this->filename . dirname(__FILE__))
 		);
 
-        var_dump(plugins_url($this->filename . dirname(__FILE__)));
-        
+        var_dump(plugins_url("HELLO" . dirname(__FILE__)));
+
 
 	}
 
