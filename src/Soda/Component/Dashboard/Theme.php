@@ -48,7 +48,7 @@ class Theme {
 
 		wp_admin_css_color( 
 			$this->name, __( ucfirst($this->name), 'admin_schemes' ), 
-			plugins_url( $this->filename . $suffix . '.css' , dirname(__FILE__) )
+			$this->filename
 		);
 
 	}
