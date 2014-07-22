@@ -8,7 +8,8 @@
     "require": {
         "silex/silex": "~1.1",
         "igorw/config-service-provider": "1.2.*",
-        "cocur/slugify": "dev-master"
+        "cocur/slugify": "dev-master",
+        "omnipay/omnipay": "~2.0"
     },
     "authors": [
         {
