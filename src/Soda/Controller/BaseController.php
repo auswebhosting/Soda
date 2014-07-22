@@ -17,21 +17,14 @@ class BaseController
 
     public function render($template, $attributes = null)
     {
+        if(array_key_exists("before_render_middleware", $this->app))
+            $app['before_render_middleware'];
+
     	if($attributes) {
     		echo $this->app['twig']->render($template, $attributes);
     	} else {
     		echo $this->app['twig']->render($template);
     	}
-    }
-
-    public function getApp()
-    {
-        return $this->app;
-    }
-
-    public function getRequest()
-    {
-        return $this->request;
     }
 
 }
