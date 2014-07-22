@@ -22,7 +22,8 @@ class OmnipayServiceProvider implements ServiceProviderInterface
 
             foreach ($value as $attribute => $setting)
             {
-                call_user_func(array($app['omnipay.factory.' . $key], 'set' . ucfirst($attribute)), $setting);
+                if($attribute !== 'gateway')
+                    call_user_func(array($app['omnipay.factory.' . $key], 'set' . ucfirst($attribute)), $setting);
             }
         }
     }
