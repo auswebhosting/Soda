@@ -1,6 +1,6 @@
 <?php
 
-namespace Soda\Provider\Notification;
+namespace Soda\Provider\Omnipay;
 
 use Silex\Application;
 use Silex\ServiceProviderInterface;
