@@ -16,7 +16,7 @@ class MenuServiceProvider implements ServiceProviderInterface
 
     public function boot(Application $app)
     {
-        $app['menu'] = new Menu();
+        $app['menu.factory'] = new Menu();
         $this->render($app);
     }
 
@@ -31,7 +31,7 @@ class MenuServiceProvider implements ServiceProviderInterface
             $method     = $controller[1];
             $slug       = $slugify->slugify($key['title']);
             
-            $app['menu']->create([$key['title'], $key['title'], $key['capability'], $slug, array($instance, $method), $key['icon'], $key['position']]);
+            $app['menu.factory']->create([$key['title'], $key['title'], $key['capability'], $slug, array($instance, $method), $key['icon'], $key['position']]);
         }
     }
 }
