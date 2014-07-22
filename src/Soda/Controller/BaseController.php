@@ -17,8 +17,7 @@ class BaseController
 
     public function render($template, $attributes = null)
     {
-        if(array_key_exists("before_render_middleware", $this->app))
-            $app['before_render_middleware'];
+        $this->app['before_render_middleware'];
 
     	if($attributes) {
     		echo $this->app['twig']->render($template, $attributes);
