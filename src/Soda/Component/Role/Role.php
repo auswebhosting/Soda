@@ -9,10 +9,33 @@ class Role {
         foreach($roles as $key => $value)
         {
             $name = $value['name'];
-            $capabilities = $value['capabilities'];
+
+            if($this->getDefaults())
+            {
+            	$capabilities = wp_parse_args($value['capabilities'], $this->getDefaults());
+            }
+            else
+            {
+            	$capabilities = $value['capabilities'];
+            }
+
+            var_dump($capabilities);
 
             add_role($key, $name, $capabilities);
         }
+    }
+
+    private function getDefaults()
+    {
+        foreach($roles as $key => $value)
+        {
+        	if($key == 'default')
+        	{
+        		return $value['capabilities'];
+        	}
+        }
+
+        return false;
     }
 
 }
