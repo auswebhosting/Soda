@@ -4,9 +4,13 @@ namespace Soda\Component\Role;
 
 class Role {
 
+	private $roles;
+
     public function __construct($roles)
     {
-        foreach($roles as $key => $value)
+    	$this->roles = $roles;
+
+        foreach($this->roles as $key => $value)
         {
             $name = $value['name'];
 
@@ -27,7 +31,7 @@ class Role {
 
     private function getDefaults()
     {
-        foreach($roles as $key => $value)
+        foreach($this->roles as $key => $value)
         {
         	if($key == 'default')
         	{
