@@ -23,6 +23,7 @@ class Role {
             	$capabilities = $value['capabilities'];
             }
 
+            remove_role($key);
             add_role($key, $name, $capabilities);
         }
     }
